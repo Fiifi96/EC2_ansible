@@ -1,0 +1,9 @@
+- name: Create a sandbox instance
+  hosts: localhost
+  gather_facts: False
+
+  roles:
+  # - role: create_ec2
+  - role: start_ec2_instance
+
+

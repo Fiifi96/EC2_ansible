@@ -1,0 +1,16 @@
+---
+# tasks file for start_ec2_instance
+# Start stopped instances specified by tag
+
+- name: Start Instance
+  amazon.aws.ec2:
+    # instance_ids: '{{ instance_ids }}'
+    region: "{{ region }}"
+    instance_tags:
+        Name: "{{ instance_name }}"  
+    state: "{{ state_of_instance }}"
+    wait: True
+    vpc_subnet_id: " {{ subnet_id }} "
+    assign_public_ip: yes
+
+

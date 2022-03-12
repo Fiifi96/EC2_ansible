@@ -1,0 +1,19 @@
+---
+# tasks file for create_ec2
+# Launch instances, runs some tasks
+# and then terminate them
+
+
+- name: Launch instance
+  amazon.aws.ec2:
+    key_name: "{{ keypair }}"
+    group: "{{ security_group }}"
+    instance_type: "{{ instance_type }}"
+    image: "{{ image }}"
+    wait: true
+    region: "{{ region }}"
+    vpc_subnet_id: "{{ vpc_subnet_id }}"
+    assign_public_ip: yes
+  register: ec2
+
+
